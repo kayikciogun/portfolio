@@ -8,7 +8,6 @@ import {
   Float, 
   Stars, 
   MeshDistortMaterial, 
-  MeshWobbleMaterial,
   Environment,
   ContactShadows
 } from '@react-three/drei';
@@ -87,8 +86,9 @@ export default function Scene() {
 
     // Animate Particles (Wave/Frequency Effect)
     particles.forEach((particle, i) => {
-      let { t, factor, speed, xFactor, yFactor, zFactor } = particle;
-      t = particle.t += speed / 2;
+      const { speed, xFactor, yFactor, zFactor } = particle;
+      particle.t += speed / 2;
+      const t = particle.t;
       
       // Wave motion
       const wave = Math.sin(t + xFactor * 0.1) * (1 + offset * 5);
