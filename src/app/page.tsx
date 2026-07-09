@@ -1,11 +1,5 @@
-import Experience from '@/components/Experience/Experience';
-import Overlay from '@/components/Overlay/Overlay';
+import ClientApp from '@/components/ClientApp';
 
 export default function Home() {
-  return (
-    <main>
-      <Experience />
-      <Overlay />
-    </main>
-  );
+  return <ClientApp />;
 }

@@ -1,0 +1,128 @@
+.vimeo-showcase-wrapper {
+  max-width: 620px;
+  width: 100%;
+  background: rgba(10, 10, 18, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.8rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  pointer-events: auto;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease, box-shadow 0.5s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.vimeo-showcase-wrapper:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.vimeo-showcase-wrapper.is-active {
+  border-color: rgba(99, 102, 241, 0.7);
+  box-shadow: 0 35px 70px rgba(99, 102, 241, 0.22), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
+}
+
+/* Video Viewport */
+.vimeo-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #05050a;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vimeo-iframe-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.vimeo-iframe-container iframe {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+}
+
+/* Subtle glow border inside viewport */
+.vimeo-glow-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Minimalist Overlay Unmute / Mute Button */
+.vimeo-unmute-overlay-btn {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 20;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 18, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  padding: 0;
+  outline: none;
+}
+
+.vimeo-unmute-overlay-btn:hover {
+  transform: scale(1.12);
+  background: rgba(99, 102, 241, 0.85);
+  border-color: #6366f1;
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4);
+}
+
+.vimeo-unmute-overlay-btn.audio-active {
+  background: rgba(16, 185, 129, 0.75);
+  border-color: #10b981;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.45);
+}
+
+.vimeo-unmute-overlay-btn.audio-active:hover {
+  background: rgba(16, 185, 129, 0.95);
+  transform: scale(1.12);
+}
+
+.unmute-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .vimeo-showcase-wrapper {
+    max-width: 100%;
+  }
+  .vimeo-unmute-overlay-btn {
+    bottom: 1rem;
+    right: 1rem;
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+  .unmute-icon {
+    font-size: 1.15rem;
+  }
+}
